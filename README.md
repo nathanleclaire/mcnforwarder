@@ -6,7 +6,7 @@ Automatically forward exposed container ports for a Docker Machine to `localhost
 
 Sometimes VBox host only interfaces are unreliable, the IPs are unreachable, or they are just plain hard to remember.
 
-This program polls the Docker daemon via SSH and runs an SSH process that forwards any exposed container ports from the VM to your OSX or Windows machine.
+This program polls the Docker daemon via SSH and runs an SSH process that forwards any exposed container ports from the VM to your OSX or Windows machine.  It intentionally avoids using a Docker API client directly due to the fact that we cannot assume we have ingress on any port other than SSH (although in the future it might be more elegant to forward the daemon port first and then use a Docker Go client).
 
 Install: `go get github.com/nathanleclaire/mcnforwarder`.
 
